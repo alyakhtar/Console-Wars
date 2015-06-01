@@ -379,10 +379,49 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
 
 
 <!-- ************************************************************************************************ -->
-<div class="modal fade" id="feedback" role="dialog">
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "samuraii";
+$dbname = "mydb";
+// $name = $email = $comment="";
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+{
+  $name = test_input($_POST["name"]);     
+  $email = test_input($_POST["email"]);
+  $comment = test_input($_POST["comment"]);
+}
+
+function test_input($data)
+{
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data);
+   return $data;
+}
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "INSERT INTO feedback (name,email,message)
+VALUES ('$name','$email','$comment')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?> 
+
+<div class="modal fade" id="feedback" role="dialog" >
     <div class="modal-dialog">
       <div class="modal-content">
-        <form class="form-horizontal" role="form" method="get" action="feedback.html" >
+        <form class="form-horizontal"  method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" >
           <div class="modal-header">
             <h4>Feedback</h4>
           </div>
@@ -390,25 +429,25 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
             <div class="form-group">
               <label for="contact-name" class="col-sm-2 control-label">Name</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="contact-name" placeholder="First & Last Name">
+                <input type="text" class="form-control" id="name" placeholder="First & Last Name" name="name">
               </div>
             </div>
             <div class="form-group">
               <label for="contact-email" class="col-sm-2 control-label">Email</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="contact-email" placeholder="example@domain.com">
+                <input type="email" class="form-control" id="email" placeholder="example@domain.com" name="email">
               </div>
             </div>
             <div class="form-group">
-              <label for="contact-message" class="col-sm-2 control-label">Message</label>
+              <label for="contact-message" class="col-sm-2 control-label" >Message</label>
               <div class="col-sm-10">
-                <textarea class="form-control" rows="4"></textarea>
+                <textarea class="form-control" rows="4" name="comment"></textarea>
               </div>
             </div>
           </div>
           <div class="modal-footer">
             <a class="btn btn-danger" data-dismiss="modal">Close</a>                                               
-            <input type="submit"  class="btn btn-primary" value="SEND">
+            <input type="submit"  class="btn btn-primary" value="SEND" name="send">
           </div>
         </form>
       </div>
