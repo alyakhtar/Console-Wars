@@ -19,7 +19,8 @@
     @font-face { font-family: ZOMBIFIED; src: url('fonts/ZOMBIFIED.ttf'); } 
     @font-face { font-family: BlackWidow; src: url('fonts/BlackWidow.ttf'); }
     @font-face { font-family: Blazed; src: url('fonts/Blazed.ttf'); }     
-  </style>      
+  </style>    
+  <script src="js/login-register.js" type="text/javascript"></script>    
 </head>
 <!-- *********************************************************************************************** -->
 <body>
@@ -52,9 +53,9 @@
             </li>            
           </ul>
           <ul class="nav navbar-nav navbar-right" style="padding-right:20px;">          
-          <li><a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Log in</a></li>              
-          <li ><a href="#feedback" data-toggle="modal">Feedback</a></li>
-        </ul>
+            <li><a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Log in</a></li>              
+            <li ><a href="#feedback" data-toggle="modal">Feedback</a></li>
+          </ul>
         </div>
 
     </div>
@@ -481,8 +482,5 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
-<script src="js/bootstrap.js" type="text/javascript"></script>
-<script src="js/login-register.js" type="text/javascript"></script>
 </body>
 </html>
