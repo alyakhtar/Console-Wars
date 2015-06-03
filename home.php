@@ -7,8 +7,8 @@
   <title>Console Wars</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/custom.css" rel="stylesheet">
-  <link href="css/login-register.css" rel="stylesheet" />
-  <link href='css/rotating-card.css' rel='stylesheet' />
+  <link href="css/login-register.css" rel="stylesheet" >
+  <link href='css/rotating-card.css' rel='stylesheet' >
   <!-- <link href="css/style.css" rel="stylesheet" type="text/css" media="all" /> -->
   <link href="css/bootstrap.css" rel="stylesheet">  
   <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -380,42 +380,8 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
 
 <!-- ************************************************************************************************ -->
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "samuraii";
-$dbname = "mydb";
-// $name = $email = $comment="";
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
-{
-  $name = test_input($_POST["name"]);     
-  $email = test_input($_POST["email"]);
-  $comment = test_input($_POST["comment"]);
-}
-
-function test_input($data)
-{
-   $data = trim($data);
-   $data = stripslashes($data);
-   $data = htmlspecialchars($data);
-   return $data;
-}
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "INSERT INTO feedback (name,email,message)
-VALUES ('$name','$email','$comment')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$conn->close();
+// include 'database/db.php';
+include 'database/feedback.php';
 ?> 
 
 <div class="modal fade" id="feedback" role="dialog" >
@@ -446,13 +412,14 @@ $conn->close();
             </div>
           </div>
           <div class="modal-footer">
-            <a class="btn btn-danger" data-dismiss="modal">Close</a>                                               
+            <!-- <a class="btn btn-danger" data-dismiss="modal">Close</a>                                                -->
             <input type="submit"  class="btn btn-primary" value="SEND" name="send">
           </div>
         </form>
       </div>
     </div>
   </div>
+
   <div class="modal fade login" id="loginModal">
           <div class="modal-dialog login animated">
               <div class="modal-content">
@@ -482,9 +449,9 @@ $conn->close();
                                 <div class="error"></div>
                                 <div class="form loginBox">
                                     <form method="post" action="/login" accept-charset="UTF-8">
-                                    <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                    <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                                    <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
+                                      <input id="email" class="form-control" type="text" placeholder="Email" name="email2">
+                                      <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                      <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
                                     </form>
                                 </div>
                              </div>
@@ -493,10 +460,10 @@ $conn->close();
                             <div class="content registerBox" style="display:none;">
                              <div class="form">
                                 <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
-                                <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                                <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
-                                <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
+                                  <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                                  <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                  <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
+                                  <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
                                 </form>
                                 </div>
                             </div>
