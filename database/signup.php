@@ -1,5 +1,4 @@
 <?php 
-$error=''; 
 // $name=$passwd=$cpasswd="";
 if (isset($_POST['signup'])) {
 	if (empty($_POST['name']) || empty($_POST['passwd']) || empty($_POST['cpasswd'])) {

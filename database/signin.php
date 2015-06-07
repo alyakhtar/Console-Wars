@@ -33,7 +33,7 @@ if(isset($_SESSION['login_user'])){
             <div class="panel panel-info" >
                     <div class="panel-heading">
                         <div class="panel-title">Sign In</div>
-                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#" onClick="$('#loginbox').hide(); $('#forgotbox').show()">Forgot password?</a></div>
                     </div> 
 
                     <div style="padding-top:30px" class="panel-body" >
@@ -127,6 +127,51 @@ if(isset($_SESSION['login_user'])){
                     </form>
                  </div>
             </div>
+        </div>
+
+        <div class="container">    
+        <div id="forgotbox" style=" display:none;margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                   
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Forgot Password</div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#" onclick="$('#forgotbox').hide(); $('#loginbox').show()">Sign In?</a></div>
+                    </div> 
+
+                    <div style="padding-top:30px" class="panel-body" >
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>                           
+                        <form id="loginform" class="form-horizontal" role="form" method="POST" action="">  
+                            <?php echo '<span style="color:red">'.$error.'</span>'; ?>                       
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Username or Email">                                        
+                            </div>                            
+                            <div style="margin-top:10px" class="form-group">
+                                <div class="col-sm-12 controls">
+                                      <a id="btn-login" href="#" class="btn btn-success"  onclick="$('#forgotbox').hide(); $('#message').show()">Retrive</a>
+                                       <!-- <p><input type="submit" class="btn btn-success" name="login" value="Retrieve"></p>   -->
+                                       <!-- <a id="btn-fblogin" href="https://www.fb.com" class="btn btn-primary">Login with Facebook</a> -->
+                                </div>
+                            </div>    
+                        </form> 
+                    </div>                     
+            </div>  
+        </div>
+
+        <div class="container">    
+        <div id="message" style=" display:none;margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                   
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">MESSAGE</div>
+                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#" onclick="$('#message').hide(); $('#loginbox').show()">Sign In?</a></div>
+                    </div> 
+
+                    <div style="padding-top:30px" class="panel-body" >
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>                           
+                        <form id="loginform" class="form-horizontal" role="form" method="POST" action="">  
+                            <p>AN EMAIL HAS BEEN SENT TO YOUR ACOUNT<br>PLEASE FOLLOW THE STEPS TO RESET YOUR PASSWORD.</p>    
+                        </form> 
+                    </div>                     
+            </div>  
         </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -244,11 +244,11 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
 <div id="contact" class="contact abcd">
 <div class="container">
     <div class="row">
-        <h1 class="title"><br>This is our awesome team<br><small>Small but kick ass</small></h1>
-        <div class="col-sm-20 col-sm-offset-2">
+        <h1 class="title"><br>This is our awesome team<br></h1>
+        <div class="col-sm-20 col-sm-offset-2" >
          <div class="col-md-5 col-sm-10">
-             <div class="card-container">
-                <div class="card">
+             <div class="card-container" >
+                <div class="card" >
                     <div class="front">
                         <div class="cover">
                             <img src="img/rotating_card_thumb.png"/>
