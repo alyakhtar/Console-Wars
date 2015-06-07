@@ -37,7 +37,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           </a>
-          <a class="navbar-brand" href="#myCarousel">CONWARS</a>
+          <a class="navbar-brand" href="#myCarousel">CONWARS<sup>&reg;</sup></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -383,7 +383,7 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
     <a style="position:absolute;  left:440px; font-weight:bold; font-size:15px;color:black;" href="page7.html" >Terms & Conditions</a>
     <a style="position:absolute;  left:800px; font-weight:bold; font-size:15px;color:black;" href="#about" >About Us</a>
     <a style="position:absolute;  left:1100px; font-weight:bold; font-size:15px;color:black;" href="#contact" data-toggle="modal">Contact Us</a><br><br><br>
-    <p style="position:absolute;  left:440px; font-weight:bold; font-size:15px; color:#000000">Copyright © 2014-<?php echo date("Y")?></p>
+    <p style="position:absolute;  left:440px; font-weight:bold; font-size:15px; color:#000000">Copyright &copy; 2014-<?php echo date("Y")?></p>
     <a style="position:absolute;  left:800px; font-weight:bold; font-size:15px;color:black;"href="https://fb.com/aly.akhtar"><i class="fa fa-facebook-square fa-2x"></i></a>
     <a style="position:absolute;  left:830px; font-weight:bold; font-size:15px;color:black;"href="#"><i class="fa fa-twitter-square fa-2x"></i></a>
     <a style="position:absolute;  left:860px; font-weight:bold; font-size:15px;color:black;"href="#"><i class="fa fa-google-plus-square fa-2x"></i></a> 
