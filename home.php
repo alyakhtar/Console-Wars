@@ -1,6 +1,7 @@
 <?php
   include 'database/session.php';
   //include 'database/feedback.php';
+  include 'database/displaynews.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -161,67 +162,35 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
       <h3 class="text-center"><br><br><br>LATEST NEWS AND UPDATES</h3>
       <p><center>ALL THE LATEST GAMING NEWS AND UPDATE.</center></p>
       <ul class="timeline">
+        <li> 
+          <div class="timeline-image">                    
+            <img class="img-circle img-responsive" src="img/news1.jpg" alt="">
+          </div>       
+          <?php $id=1; displaynews(); ?>
+          <div class="line"></div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-image">                    
+            <img class="img-circle img-responsive" src="img/news2.jpg" alt="">
+          </div>
+          <?php $id=2; displaynews(); ?>
+          <div class="line"></div>
+        </li>
         <li>
           <div class="timeline-image">
-            <img class="img-circle img-responsive" src="" alt="">
+            <img class="img-circle img-responsive" src="img/news3.jpg" alt="">
           </div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4>news 1</h4>
-              <h4 class="subheading">Subtitle</h4>
-            </div>
-            <div class="timeline-body">
-              <p class="text-muted">blah blah blah</p>
-            </div>
-          </div>
+          <?php $id=3; displaynews(); ?>
           <div class="line"></div>
         </li>
         <li class="timeline-inverted">
           <div class="timeline-image">
-            <img class="img-circle img-responsive" src="" alt="">
+            <img class="img-circle img-responsive" src="img/news4.jpg" alt="">
           </div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4>news Two</h4>
-              <h4 class="subheading">Subtitle</h4>
-            </div>
-            <div class="timeline-body">
-              <p class="text-muted">  blah blah blah   </p>
-            </div>
-          </div>
-          <div class="line"></div>
+          <?php $id=4; displaynews(); ?>
+          <!-- <div class="line"></div> -->
         </li>
-        <li>
-          <div class="timeline-image">
-            <img class="img-circle img-responsive" src="" alt="">
-          </div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4>news Three</h4>
-              <h4 class="subheading">Subtitle</h4>
-            </div>
-            <div class="timeline-body">
-              <p class="text-muted">blah blah blah</p>
-            </div>
-          </div>
-          <div class="line"></div>
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-image">
-            <img class="img-circle img-responsive" src="" alt="">
-          </div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4>news Three</h4>
-              <h4 class="subheading">Subtitle</h4>
-            </div>
-            <div class="timeline-body">
-              <p class="text-muted">blah blah blah </p>
-            </div>
-          </div>
-          <div class="line"></div>
-        </li>
-        <li>
+        <!-- <li>
           <div class="timeline-image">
             <img class="img-circle img-responsive" src="" alt="">
           </div>
@@ -234,7 +203,7 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
               <p class="text-muted">blah blah blah </p>
             </div>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>

@@ -14,16 +14,7 @@ if(isset($_SESSION['login_user'])){
 		<title>iBuy</title>
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link href="../css/custom.css" rel="stylesheet">	
-		<link href="../css/font-awesome.min.css" rel="stylesheet"> 	 
-		<style type="text/css">		
-		body 
-		{
-			background: #ffffff url(../img/rotating_card_thumb3.png) repeat-x fixed center top;
-			background-size:cover; 
-			padding-bottom:70px;
-			padding-top:50px;
-		} 	
-		</style>   	 
+		<link href="../css/font-awesome.min.css" rel="stylesheet">	  	 
 	</head>
 <body>
 
