@@ -58,14 +58,29 @@
           </ul>
           <ul class="nav navbar-nav navbar-right" style="padding-right:20px;">              
             <!-- <li><a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Log in</a></li>          -->
-            <li><a href="signin.php"><?php if(isset($login_session)){
-                                      echo '<li class="dropdown">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo ucfirst($login_session);?> <b class="caret"></b></a>
+            <ul class="dropdown-menu" role="menu">
+              <?php 
+              if($login_session == "guest"){
+              echo '<li><a href="signin.php">Login</a></li>'; 
+              } else{
+                echo '<li><a href="logout.php">Logout</a></li>';
+              }
+              ?>            
+            </ul>            
+          </li>
+
+
+            <!-- <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                              <?php if(isset($login_session)){
+                                              echo '
                                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">'.strtoupper($login_session).'<b class="caret"></b></a>
                                               <ul class="dropdown-menu" role="menu">
                                                   <li><a href="logout.php">Logout</a></li>  
                                               </ul>            
-                                            </li>' ; } else{ echo 'Sign In';}
-             ?></a></li>
+                                            ' ; } else{ echo 'Sign In';}
+             ?></a></li> -->
             <li ><a href="#feedback" data-toggle="modal">Feedback</a></li>
           </ul>
         </div>

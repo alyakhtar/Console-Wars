@@ -1,4 +1,5 @@
 <?php
+$login_session="guest";
 $connection = mysql_connect("localhost", "root", "samuraii");
 $db = mysql_select_db("mydb", $connection);
 session_start();
