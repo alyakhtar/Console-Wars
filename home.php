@@ -1,3 +1,7 @@
+<?php
+  include 'session.php';
+  //include 'database/feedback.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,8 +56,16 @@
               </ul>            
             </li>            
           </ul>
-          <ul class="nav navbar-nav navbar-right" style="padding-right:20px;">          
-            <li><a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Log in</a></li>              
+          <ul class="nav navbar-nav navbar-right" style="padding-right:20px;">              
+            <!-- <li><a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Log in</a></li>          -->
+            <li><a href="signin.php"><?php if(isset($login_session)){
+                                      echo '<li class="dropdown">
+                                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">'.strtoupper($login_session).'<b class="caret"></b></a>
+                                              <ul class="dropdown-menu" role="menu">
+                                                  <li><a href="logout.php">Logout</a></li>  
+                                              </ul>            
+                                            </li>' ; } else{ echo 'Sign In';}
+             ?></a></li>
             <li ><a href="#feedback" data-toggle="modal">Feedback</a></li>
           </ul>
         </div>
@@ -362,8 +374,7 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
   ga('send', 'pageview');
 
 </script>
-<footer style="padding-bottom:55px; padding-top:40px; background-image:url(img/rotating_card_thumb.png) ;padding-left:-250px;">
-      
+<footer style="padding-bottom:55px; padding-top:40px; background-image:url(img/rotating_card_thumb.png) ;padding-left:-250px;">      
     <a style="position:absolute; left:170px; font-weight:bold; font-size:15px; color:black;" href="#feedback" data-toggle="modal">Feedback</a>
     <a style="position:absolute;  left:440px; font-weight:bold; font-size:15px;color:black;" href="page7.html" >Terms & Conditions</a>
     <a style="position:absolute;  left:800px; font-weight:bold; font-size:15px;color:black;" href="#about" >About Us</a>
@@ -372,17 +383,12 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
     <a style="position:absolute;  left:800px; font-weight:bold; font-size:15px;color:black;"href="https://fb.com/aly.akhtar"><i class="fa fa-facebook-square fa-2x"></i></a>
     <a style="position:absolute;  left:830px; font-weight:bold; font-size:15px;color:black;"href="#"><i class="fa fa-twitter-square fa-2x"></i></a>
     <a style="position:absolute;  left:860px; font-weight:bold; font-size:15px;color:black;"href="#"><i class="fa fa-google-plus-square fa-2x"></i></a> 
-    <a style="position:absolute;  left:890px; font-weight:bold; font-size:15px;color:black;"href="#"><i class="fa fa-rss-square fa-2x"></i></a>
-  
+    <a style="position:absolute;  left:890px; font-weight:bold; font-size:15px;color:black;"href="#"><i class="fa fa-rss-square fa-2x"></i></a>  
 </footer>
 
 
 
 <!-- ************************************************************************************************ -->
-<?php
-// include 'database/db.php';
-include 'database/feedback.php';
-?> 
 
 <div class="modal fade" id="feedback" role="dialog" >
     <div class="modal-dialog">
@@ -412,7 +418,7 @@ include 'database/feedback.php';
             </div>
           </div>
           <div class="modal-footer">
-            <!-- <a class="btn btn-danger" data-dismiss="modal">Close</a>                                                -->
+            <!-- <a class="btn btn-danger" data-dismiss="modal" >Close</a>                                                -->
             <input type="submit"  class="btn btn-primary" value="SEND" name="send">
           </div>
         </form>
@@ -420,7 +426,7 @@ include 'database/feedback.php';
     </div>
   </div>
 
-  <div class="modal fade login" id="loginModal">
+  <!-- <div class="modal fade login" id="loginModal">
           <div class="modal-dialog login animated">
               <div class="modal-content">
                  <div class="modal-header">
@@ -448,10 +454,10 @@ include 'database/feedback.php';
                                 </div>
                                 <div class="error"></div>
                                 <div class="form loginBox">
-                                    <form method="post" action="/login" accept-charset="UTF-8">
-                                      <input id="email" class="form-control" type="text" placeholder="Email" name="email2">
+                                    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" accept-charset="UTF-8">
+                                      <input id="username" class="form-control" type="text" placeholder="User Name" name="username">
                                       <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                                      <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
+                                      <input class="btn btn-default btn-login" type="submit" value="Login" onclick="loginAjax()">
                                     </form>
                                 </div>
                              </div>
@@ -459,9 +465,9 @@ include 'database/feedback.php';
                         <div class="box">
                             <div class="content registerBox" style="display:none;">
                              <div class="form">
-                                <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
-                                  <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                  <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                <form method="post" html="{:multipart=>true}" data-remote="true" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" accept-charset="UTF-8">
+                                  <input id="username2" class="form-control" type="text" placeholder="User Name" name="username2">
+                                  <input id="password" class="form-control" type="password" placeholder="Password" name="password2">
                                   <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
                                   <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
                                 </form>
@@ -482,7 +488,7 @@ include 'database/feedback.php';
                     </div>        
               </div>
           </div>
-      </div>
+      </div> -->
 
 
 

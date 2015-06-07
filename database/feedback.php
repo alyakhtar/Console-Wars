@@ -3,7 +3,7 @@ $servername = "localhost";
 $username = "root";
 $password = "samuraii";
 $dbname = "mydb";
-
+$name=$email=$comment="";
 // $name=isset($_POST['name'] ? $_POST['name'] : '';
 // $email=isset($_POST['email'] ? $_POST['email'] : '';
 // $comment=isset($_POST['comment'] ? $_POST['comment'] : '';
