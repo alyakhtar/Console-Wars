@@ -14,7 +14,22 @@ if(isset($_SESSION['login_user'])){
 		<title>iBuy</title>
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
 		<link href="../css/custom.css" rel="stylesheet">	
-		<link href="../css/font-awesome.min.css" rel="stylesheet">	  	 
+		<link href="../css/font-awesome.min.css" rel="stylesheet">	
+        <style type="text/css">
+        @font-face { font-family: Anothershabby; src: url('fonts/Anothershabby.ttf'); } 
+        @font-face { font-family: Hallosans; src: url('fonts/Hallosans.otf');}
+        @font-face { font-family: orangejuice; src: url('fonts/orangejuice.ttf'); }
+        @font-face { font-family: ZOMBIFIED; src: url('fonts/ZOMBIFIED.ttf'); } 
+        @font-face { font-family: BlackWidow; src: url('fonts/BlackWidow.ttf'); }
+        @font-face { font-family: Blazed; src: url('fonts/Blazed.ttf'); }   
+        body 
+        {
+            background: #ffffff url(../img/news.jpg) repeat-x fixed center top;
+            background-size:cover; 
+            padding-bottom:70px;
+            padding-top:50px;
+        }   
+        </style>  	 
 	</head>
 <body>
 

@@ -39,6 +39,11 @@
           <span class="icon-bar"></span>
           </a>
           <a class="navbar-brand" href="#myCarousel">CONWARS<sup>&reg;</sup></a>
+        <!-- <div clas="logo-container">
+          <div class="logo">
+          <img height="60" width="120" src="img/logo.jpg" alt="Console Wars">
+          </div>
+        </div> -->
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -52,7 +57,13 @@
                 <li><a href="#">PS3</a></li>
                 <li><a href="#">PS4</a></li>
                 <li class="divider"></li>
-                <li><a href="#">X-BOX 360</a></li>                
+                <?php 
+                if($login_session == "guest"){
+                echo '<li><a href="pleaselogin.php">X-BOX 360</a></li>'; 
+                } else{
+                  echo '<li><a href="consoles.php">X-BOX 360</a></li>';
+                }
+                ?>                
                 <li><a href="#">X-BOX ONE</a></li>
               </ul>            
             </li>            
