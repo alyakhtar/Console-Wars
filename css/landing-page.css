@@ -966,14 +966,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#de8e0009', e
   position: relative;
 }
 .landing-page .parallax .parallax-image{
-  width: 300px;
+  /*width: 300px;*/
   margin: 0 auto;
   padding-top: 165px;
 }
 
 .landing-page .parallax .parallax-image img {
   width: 100%;
-  height: auto;
+  /*height: auto;*/
 }
 
 .landing-page .parallax .parallax-image .screen {

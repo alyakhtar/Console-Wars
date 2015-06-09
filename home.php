@@ -2,6 +2,8 @@
   include 'database/session.php';
   //include 'database/feedback.php';
   include 'database/displaynews.php';
+  // include 'database/consoledb.php'
+  // include 'database/ps3.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,17 +56,31 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Consoles <b class="caret"></b></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">PS3</a></li>
-                <li><a href="#">PS4</a></li>
-                <li class="divider"></li>
                 <?php 
-                if($login_session == "guest"){
-                echo '<li><a href="pleaselogin.php">X-BOX 360</a></li>'; 
-                } else{
-                  echo '<li><a href="consoles.php">X-BOX 360</a></li>';
-                }
-                ?>                
-                <li><a href="#">X-BOX ONE</a></li>
+                  if($login_session == "guest"){
+                    echo '<li><a href="pleaselogin.php">PS3</a></li>'; 
+                  } else{     
+                    echo '<li><a href="database/ps3.php">PS3</a></li>';
+                  }                  
+                  echo '<li class="divider"></li>';
+                  if($login_session == "guest"){
+                  echo '<li><a href="pleaselogin.php">PS4</a></li>'; 
+                  } else{                    
+                    echo '<li><a href="database/ps4.php">PS4</a></li>';
+                  }
+                  echo '<li class="divider"></li>';
+                  if($login_session == "guest"){
+                  echo '<li><a href="pleaselogin.php">X-BOX 360</a></li>'; 
+                  } else{
+                    echo '<li><a href="database/xbox.php">X-BOX 360</a></li>';
+                  }
+                  echo '<li class="divider"></li>';
+                  if($login_session == "guest"){
+                  echo '<li><a href="pleaselogin.php">X-BOX ONE</a></li>'; 
+                  } else{
+                    echo '<li><a href="database/xbox1.php">X-BOX ONE</a></li>';
+                  }
+                ?>
               </ul>            
             </li>            
           </ul>
