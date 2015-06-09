@@ -1,5 +1,5 @@
  <?php 
- 	session_start();
+ 	// session_start();
  	$y=$_SESSION['var'];  
 
     if($y=='ps3'){
@@ -16,10 +16,14 @@
     	global $tbl;
 	    $con=mysql_connect("localhost","root","samuraii");
 	    mysql_select_db("mydb",$con);
-	    $result=mysql_query('select * from'.$tbl);
-	    while(mysql_fetch_array($result)){
-	    	$row=mysql_fetch_array($result);
-	    	echo '<li><p>'.$row[0].'<a href="" class="btn btn-danger pull-right" >ORDER</a></p></li>';
+	    $result=mysql_query('select * from '.$tbl);
+
+	 //    if (!$result) { 
+  //   		die('Invalid query: ' . mysql_error());
+		// }
+		
+	    while($row=mysql_fetch_array($result)){	    	
+	    	echo '<li><p>'.$row[1].'<a href="" class="btn btn-danger pull-right" >ORDER</a></p></li>';
 	    }
     }      
 ?>
