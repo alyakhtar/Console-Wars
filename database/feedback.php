@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "samuraii";
-$dbname = "mydb";
+require_once 'dbconnect.php';
 $name=$email=$comment="";
 // $name=isset($_POST['name'] ? $_POST['name'] : '';
 // $email=isset($_POST['email'] ? $_POST['email'] : '';
@@ -41,8 +38,6 @@ function test_input($data)
    $data = htmlspecialchars($data);
    return $data;
 }
-
-$conn = new mysqli($servername, $username, $password, $dbname);
 
 $sql = "INSERT INTO feedback (name,email,message) VALUES ('$name','$email','$comment')";
 $conn->query($sql);

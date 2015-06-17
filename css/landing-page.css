@@ -423,7 +423,7 @@ a:focus, a:active {
   font-weight: 600;
   margin: 5px 0px;
   padding: 20px 15px;
-  font-size: 20px;
+  /*font-size: 20px;*/
 }
 .navbar .navbar-nav > li > a {
   padding: 10px 15px;

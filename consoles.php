@@ -1,6 +1,9 @@
 <?php
-session_start();
+// session_start();
+include 'database/session.php';
 // include 'database/consoledb.php';
+if($login_session == 'guest')
+  header('Location:pleaselogin.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,7 +34,7 @@ session_start();
     <div class="container">
     
     <div class="navbar-header">
-      <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+      <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" >
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar bar1"></span>
         <span class="icon-bar bar2"></span>
@@ -40,10 +43,10 @@ session_start();
       <a>
        <div class="logo-container">
             <div class="logo">
-                <a href="home.php"><img height="50" src="img/logo.jpg" alt="Console Wars"></a>
+                <a href="index.php"><img height="50" src="img/logo.jpg" alt="Console Wars"></a>
             </div>
             <div class="brand">
-                <a href="home.php"><span style="color:white">Console wars</span></a>
+                <a href="index.php"><span style="color:white">Console wars</span></a>
             </div>
         </div>
       </a>
@@ -51,30 +54,40 @@ session_start();
 
     <div class="collapse navbar-collapse" id="example" >
       <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="#"> 
-                    <i class="fa fa-facebook-square"></i>
-                    Like
-                </a>
-            </li>
-             <li>
-                <a href="#"> 
-                    <i class="fa fa-google-plus"></i>
-                    Plus
-                </a>
-            </li>
-            <li>
-                <a href="#"> 
-                    <i class="fa fa-github"></i>
-                    Git
-                </a>                
-            </li>
-            <li>
-                <a href="database/logout.php"> 
-                    <i class="fa fa-sign-out"></i>
-                    Logout
-                </a>                
-            </li>
+        <li>
+            <?php                  
+                $y=$_SESSION['var'];  
+                if($y=='ps3'){
+                    echo '<li><a href="database/ps4.php">PS4</a></li>';
+                    echo '<li><a href="database/xbox.php">X-BOX 360</a></li>';
+                    echo '<li><a href="database/xbox1.php">X-BOX ONE</a></li>';
+                }else if($y=='ps4'){
+                    echo '<li><a href="database/ps3.php">PS3</a></li>';
+                    echo '<li><a href="database/xbox.php">X-BOX 360</a></li>';
+                    echo '<li><a href="database/xbox1.php">X-BOX ONE</a></li>';
+                }else if($y=='xbox360'){
+                    echo '<li><a href="database/ps3.php">PS3</a></li>';
+                    echo '<li><a href="database/ps4.php">PS4</a></li>';
+                    echo '<li><a href="database/xbox1.php">X-BOX ONE</a></li>';
+                }else if($y='xboxone'){
+                    echo '<li><a href="database/ps3.php">PS3</a></li>';
+                    echo '<li><a href="database/ps4.php">PS4</a></li>';
+                    echo '<li><a href="database/xbox.php">X-BOX 360</a></li>';
+                }
+            ?>                
+        </li>
+        <li>
+            <a href="cart.php"> 
+                <i class="fa fa-shopping-cart"></i>
+                Cart
+            </a>                
+        </li>    
+        <li>
+            <a href="database/logout.php"> 
+                <i class="fa fa-sign-out"></i>
+                Logout
+            </a>                
+        </li>
        </ul>
       
     </div>
@@ -96,7 +109,7 @@ session_start();
                             echo '<img width="400" height="400" src="img/ps3.jpg">';
                           }else if($y=='ps4'){
                             echo '<img height="300" src="img/ps4.jpg">';
-                          }else if($y=='xbox'){
+                          }else if($y=='xbox360'){
                             echo '<img src="img/xbox360.jpg">';
                           }else if($y=='xboxone'){
                             echo '<img src="img/x1.jpg">';
@@ -128,7 +141,7 @@ session_start();
             </div>
         </div>
     </div>
-
+    
     <div class="section section-gray section-clients">
         <div class="container text-center">
             <h4 class="header-text">Friends in high places</h4>
@@ -154,14 +167,14 @@ session_start();
       <br><br>
       <ul>
           <?php
-            include 'database/consoledb.php';
-            gamelist();
+            include 'database/consoledb.php';            
+            gamelist();             
           ?>
           <!-- <li><p>Witcher 3<a href="" class="btn btn-danger pull-right" >ORDER</a></p></li>
-          <li><p>Fifa 15<a href="" class="btn btn-danger  pull-right" >ORDER</a></p></li -->>          
-      </ul>               
+          <li><p>Fifa 15<a href="" class="btn btn-danger  pull-right" >ORDER</a></p></li -->          
+      </ul> <br><br>              
     </div>
-
+    
     <div class="section" >
         <div class="full-background filter-gradient gray" style="background-image:url('img/bg.jpg')">
             <div class="info">
@@ -216,7 +229,7 @@ session_start();
 </body>
 
 <!-- ************************************************************************************************************** -->
-    <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+  <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
   <script src="js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
 
   <script src="js/bootstrap.js" type="text/javascript"></script>

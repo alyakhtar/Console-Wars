@@ -2,7 +2,7 @@
 include 'login.php'; 
 include 'signup.php';
 if(isset($_SESSION['login_user'])){
-    header("location: ../home.php");
+    header("location: ../index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -149,7 +149,7 @@ if(isset($_SESSION['login_user'])){
                             <?php echo '<span style="color:red">'.$error.'</span>'; ?>                       
                             <div style="margin-bottom: 25px" class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Username or Email">                                        
+                                <input id="login-username" type="text" class="form-control" name="usrname" value="" placeholder="Username or Email">                                        
                             </div>                            
                             <div style="margin-top:10px" class="form-group">
                                 <div class="col-sm-12 controls">
