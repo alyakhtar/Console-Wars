@@ -15,6 +15,7 @@ if($login_session == 'guest')
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />    
     <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
     <link href="css/landing-page.css" rel="stylesheet"/>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
@@ -53,37 +54,37 @@ if($login_session == 'guest')
     </div>
 
     <div class="collapse navbar-collapse" id="example" >
-      <ul class="nav navbar-nav navbar-right">
-        <li>
+      <ul class="nav navbar-nav navbar-right" >
+        <li >
             <?php                  
                 $y=$_SESSION['var'];  
                 if($y=='ps3'){
-                    echo '<li><a href="database/ps4.php">PS4</a></li>';
-                    echo '<li><a href="database/xbox.php">X-BOX 360</a></li>';
-                    echo '<li><a href="database/xbox1.php">X-BOX ONE</a></li>';
+                    echo '<li ><a href="database/ps4.php" style="font-size:20px;">PS4</a></li>';
+                    echo '<li><a href="database/xbox.php" style="font-size:20px;">X-BOX 360</a></li>';
+                    echo '<li><a href="database/xbox1.php" style="font-size:20px;">X-BOX ONE</a></li>';
                 }else if($y=='ps4'){
-                    echo '<li><a href="database/ps3.php">PS3</a></li>';
-                    echo '<li><a href="database/xbox.php">X-BOX 360</a></li>';
-                    echo '<li><a href="database/xbox1.php">X-BOX ONE</a></li>';
+                    echo '<li><a href="database/ps3.php" style="font-size:20px;">PS3</a></li>';
+                    echo '<li><a href="database/xbox.php" style="font-size:20px;">X-BOX 360</a></li>';
+                    echo '<li><a href="database/xbox1.php" style="font-size:20px;">X-BOX ONE</a></li>';
                 }else if($y=='xbox360'){
-                    echo '<li><a href="database/ps3.php">PS3</a></li>';
-                    echo '<li><a href="database/ps4.php">PS4</a></li>';
-                    echo '<li><a href="database/xbox1.php">X-BOX ONE</a></li>';
+                    echo '<li><a href="database/ps3.php" style="font-size:20px;">PS3</a></li>';
+                    echo '<li><a href="database/ps4.php" style="font-size:20px;">PS4</a></li>';
+                    echo '<li><a href="database/xbox1.php" style="font-size:20px;">X-BOX ONE</a></li>';
                 }else if($y='xboxone'){
-                    echo '<li><a href="database/ps3.php">PS3</a></li>';
-                    echo '<li><a href="database/ps4.php">PS4</a></li>';
-                    echo '<li><a href="database/xbox.php">X-BOX 360</a></li>';
+                    echo '<li><a href="database/ps3.php" style="font-size:20px;">PS3</a></li>';
+                    echo '<li><a href="database/ps4.php" style="font-size:20px;">PS4</a></li>';
+                    echo '<li><a href="database/xbox.php" style="font-size:20px;">X-BOX 360</a></li>';
                 }
             ?>                
         </li>
         <li>
-            <a href="cart.php"> 
+            <a href="cart.php" style="font-size:15px;"> 
                 <i class="fa fa-shopping-cart"></i>
                 Cart
             </a>                
         </li>    
         <li>
-            <a href="database/logout.php"> 
+            <a href="database/logout.php" style="font-size:15px;"> 
                 <i class="fa fa-sign-out"></i>
                 Logout
             </a>                
@@ -184,6 +185,55 @@ if($login_session == 'guest')
         </div>
     </div> 
     
+    <div class="container">
+    <div class="row">
+    <div class="col-sm-10 col-sm-offset-1" id="logout">
+        <div class="page-header">
+            <h3 class="xyz">LEAVE YOUR COMMENT</h3>            
+        </div>
+        <div class="comment-tabs">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#comments-logout" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Comments</h4></a></li>
+                <li><a href="#add-comment" role="tab" data-toggle="tab"><h4 class="reviews text-capitalize">Add comment</h4></a></li>
+            </ul>            
+            <div class="tab-content">
+                <div class="tab-pane active" id="comments-logout">                
+                    <ul class="media-list">
+                        <?php
+                        include 'database/comment.php';
+                        ?>
+                    </ul> 
+                </div>
+                <div class="tab-pane" id="add-comment">
+                    <form action="" method="post" class="form-horizontal" id="commentForm" role="form"> 
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">Comment</label>
+                            <div class="col-sm-10">
+                              <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="uploadMedia" class="col-sm-2 control-label">Upload media</label>
+                            <div class="col-sm-10">                    
+                                <div class="input-group">
+                                  <div class="input-group-addon">http://</div>
+                                  <input type="text" class="form-control" name="uploadMedia" id="uploadMedia">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">                    
+                                <input  type="submit" class="btn btn-success btn-circle2 text-uppercase" value="Submit comment" name="submit_comment"></input>                                
+                            </div>
+                        </div>            
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div><br><br>
+
     <footer class="footer">
             <div class="container">
                 <nav class="pull-left">
@@ -231,7 +281,6 @@ if($login_session == 'guest')
 <!-- ************************************************************************************************************** -->
   <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
   <script src="js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
-
   <script src="js/bootstrap.js" type="text/javascript"></script>
 
     <script type="text/javascript">
