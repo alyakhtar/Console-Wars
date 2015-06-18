@@ -16,6 +16,7 @@
   <!-- <link href="css/style.css" rel="stylesheet" type="text/css" media="all" /> -->
   <link href="css/bootstrap.css" rel="stylesheet">  
   <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="img/logo.ico">
   <style type="text/css">
     @font-face { font-family: Anothershabby; src: url('fonts/Anothershabby.ttf'); } 
     @font-face { font-family: Hallosans; src: url('fonts/Hallosans.otf');}
