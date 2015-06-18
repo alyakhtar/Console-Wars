@@ -92,6 +92,7 @@
                 } else{
                   echo '<li><a href="database/logout.php">Logout</a></li>';
                   echo '<li><a href="cart.php">Cart</a></li>';
+                  echo '<li><a href="profile.php">Profile</a></li>';
                 }
                 ?>            
               </ul>            

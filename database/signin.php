@@ -1,9 +1,9 @@
 <?php
 include 'login.php'; 
 include 'signup.php';
-if(isset($_SESSION['login_user'])){
-    header("location: ../index.php");
-}
+// if(isset($_SESSION['login_user'])){
+//     header("location: ../index.php");
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">

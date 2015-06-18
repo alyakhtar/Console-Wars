@@ -9,7 +9,7 @@
 		if(!empty($row[5])){
 			echo	'<li class="media">
 			        <a class="pull-left" href="#">
-			          <img class="media-object img-circle" src="" alt="profile">
+			          <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
 			        </a>
 			        <div class="media-body">
 			          <div class="well well-lg">
@@ -28,7 +28,7 @@
 			}	else{
 				echo	'<li class="media">
 			        <a class="pull-left" href="#">
-			          <img class="media-object img-circle" src="" alt="profile">
+			          <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
 			        </a>
 			        <div class="media-body">
 			          <div class="well well-lg">
