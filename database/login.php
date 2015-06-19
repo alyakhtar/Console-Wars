@@ -18,8 +18,13 @@ if($login_session == "guest"){
 			$query = mysql_query("select * from users where password='$hash_password' AND username='$username'");
 			$rws = mysql_num_rows($query);
 			if ($rws == 1) {
-				$_SESSION['login_user']=$username; 
-				header("location: ../index.php");
+				if($username == "admin"){
+					$_SESSION['login_user']=$username;
+					header("Location: ../admin.php");
+				}	else{
+					$_SESSION['login_user']=$username; 
+					header("location: ../index.php");
+				}
 			} else {
 				$error = "INVALID USERNAME/PASSWORD";
 			}

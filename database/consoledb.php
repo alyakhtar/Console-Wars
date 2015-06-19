@@ -19,11 +19,18 @@
   //   		die('Invalid query: ' . mysql_error());
 		// }
 	    while($row=mysql_fetch_array($result)){	
-	  	echo '<form method="post" action="database/user_cart.php?code='.$row[0].'" >
-	    		<li>
-	    			<p>'.$row[1].'<input type="submit" class="btn btn-danger pull-right" name="check" value="ORDER"></p> 
-			    </li>           			
-            </form>';
+            if($_SESSION['login_user'] == "admin"){
+                echo '<li>
+                        <p>'.$row[1].'</p>
+                      </li>';
+
+            } else {
+        	  	echo '<form method="post" action="database/user_cart.php?code='.$row[0].'" >
+        	    		<li>
+        	    			<p>'.$row[1].'<input type="submit" class="btn btn-danger pull-right" name="check" value="ORDER"></p> 
+        			    </li>           			
+                    </form>';
+            }
 	    }
     } 
 ?>

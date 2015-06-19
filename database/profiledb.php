@@ -4,7 +4,7 @@
     $query=mysql_query("select * from users where username= '$user'"); 
     $row=mysql_fetch_array($query);
     echo '<div>
-  <form ction="database/profiledb.php" method="post" class="form-horizontal" id="accountSetForm" role="form" enctype="multipart/form-data">
+  <form action="database/profiledb.php" method="post" class="form-horizontal" id="accountSetForm" role="form" enctype="multipart/form-data">
     <div class="form-grup" style="margin-bottom:-10px;">
       <label class="col-sm-5 control-label">Avatar</label>
       <div class="">                                
@@ -18,7 +18,7 @@
     </div><br>
     <label class="col-sm-7 control-label">Size should be less than 40kb</label><br><br>
     <div class="form-grup" style="margin-top:-10px;">      
-      <label class="col-sm-5 control-label">Last Profile Update</label>
+      <label class="col-sm-5 control-label">Profile Created on</label>
       <div class="col-sm-3">
         <h5>'.$row[4].'</h5>
       </div>

@@ -89,11 +89,14 @@
               <ul class="dropdown-menu" role="menu">
                 <?php 
                 if($login_session == "guest"){
-                echo '<li><a href="database/signin.php">Login</a></li>'; 
+                echo '<li><a href="database/signin.php"><i class="fa fa-sign-in"></i> Login</a></li>'; 
+                } elseif ($login_session == "admin") {
+                  echo '<li><a href="database/logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>';
+                  echo '<li><a href="admin.php"><i class="fa fa-cog"></i> Manage</a></li>';
                 } else{
-                  echo '<li><a href="database/logout.php">Logout</a></li>';
-                  echo '<li><a href="cart.php">Cart</a></li>';
-                  echo '<li><a href="profile.php">Profile</a></li>';
+                  echo '<li><a href="database/logout.php"><i class="fa fa-sign-out"></i> Logout</a></li>';
+                  echo '<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> Cart</a></li>';
+                  echo '<li><a href="profile.php"><i class="fa fa-cog"></i> Profile</a></li>';
                 }
                 ?>            
               </ul>            
@@ -118,7 +121,7 @@
   </ol>
   <div class="carousel-inner">
     <div class="item active">
-      <img src="img/f14.jpg" class="fill">
+      <img src="img/9.jpg" class="fill">
       <!-- <div class="container">
         <div class="carousel-caption">
           <h1>CONSOLE WARS</h1>          
@@ -127,28 +130,28 @@
       </div> -->
     </div>
     <div class="item">
-              <img src="img/wd.jpg" alt="...">
+              <img src="img/1.jpg" alt="...">
             </div>
             <div class="item">
+              <img src="img/2.jpg" alt="...">
+            </div>
+        <div class="item">
+              <img src="img/3.jpg" alt="...">
+            </div>
+        <div class="item">
+              <img src="img/4.jpg" alt="...">
+            </div>
+        <div class="item">
+              <img src="img/5.jpg" alt="...">
+            </div>
+        <div class="item">
               <img src="img/6.jpg" alt="...">
             </div>
         <div class="item">
-              <img src="img/7.jpg" alt="...">
-            </div>
-        <div class="item">
-              <img src="img/8.jpg" alt="...">
-            </div>
-        <div class="item">
-              <img src="img/9.jpg" alt="...">
-            </div>
-        <div class="item">
-              <img src="img/10.jpg" alt="...">
-            </div>
-        <div class="item">
-            <img src="img/11.jpg" alt="...">
+            <img src="img/7.jpg" alt="...">
               </div>
         <div class="item">
-              <img src="img/12.jpg" alt="...">
+              <img src="img/8.jpg" alt="...">
             </div>
   </div>
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -492,7 +495,7 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
