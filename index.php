@@ -272,7 +272,7 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- end front panel -->
+                    </div> 
                     <div class="back">
                         <div class="header">
                             <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
@@ -292,9 +292,9 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
                                 <a href="http://github.com/alyakhtar" class="twitter"><i class="fa fa-github fa-fw"></i></a>
                             </div>
                         </div>
-                    </div> <!-- end back panel -->
-                </div> <!-- end card -->
-            </div> <!-- end card-container -->
+                    </div> 
+                </div> 
+            </div> 
         </div> 
         <div class="col-md-5 col-sm-15">
             <div class="card-container">
@@ -322,7 +322,7 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- end front panel -->
+                    </div> 
                     <div class="back">
                         <div class="header">
                             <h5 class="motto">"Nobodys a virgin, at the end life fucks everyone!"</h5>
@@ -342,12 +342,12 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
                                 <a href="http://github.com/msameerkhan" class="twitter"><i class="fa fa-github fa-fw"></i></a>
                             </div>
                         </div>
-                    </div> <!-- end back panel -->
-                </div> <!-- end card -->
-            </div> <!-- end card-container -->
-        </div> <!-- end col-sm-3 -->
-        </div> <!-- end col-sm-10 --> 
-    </div> <!-- end row -->
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+        </div> 
+    </div> 
     <div class="space-200"></div>    
 </div>
 </div>

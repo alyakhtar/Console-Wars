@@ -243,7 +243,7 @@ span.highlight2{
     color: #999;
     font-size: 12px;
 }
-.media .media-object { max-width: 40px; }
+.media .media-object { max-width: 72px; }
 .media-body { position: relative;}
 .media-date { 
     position: absolute; 

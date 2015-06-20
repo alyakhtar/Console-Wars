@@ -84,8 +84,8 @@
       <h1 style="color: #000000;font-size:30px;font-weight:bold; font-family: Anothershabby">Profile</h1>      
     </div> 
   </div>
-<?php 
-  include 'database/profiledb.php';
+<?php   
+    include 'database/profiledb.php';
 ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
