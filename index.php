@@ -1,6 +1,7 @@
 <?php
   include 'database/session.php';
   include 'database/displaynews.php';
+  include 'database/feedback.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -253,7 +254,7 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
                             <img src="img/rotating_card_thumb.png"/>
                         </div>
                         <div class="user">
-                            <img class="img-circle" src="img/aly.jpg"/>
+                            <img class="img-circle" src="img/aly2.jpg"/>
                         </div>
                         <div class="content">
                             <div class="main">
@@ -304,7 +305,7 @@ Games such as hide-and-seek or tag do not utilise any obvious tool; rather, thei
                             <img src="img/rotating_card_thumb3.png"/>
                         </div>
                         <div class="user">
-                            <img class="img-circle" src="img/sameer.jpg"/>
+                            <img class="img-circle" src="img/sameer2.jpg"/>
                         </div>
                         <div class="content">
                             <div class="main">

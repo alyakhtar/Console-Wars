@@ -69,12 +69,12 @@
 			$rest = substr($media,$pos+1);
 			$query=mysql_query("insert into comment (comment,console,user,date,media,user_id) values ('$comment','$console','$user','$date','$rest','$id')");
 			echo '<script>
-				window.location = "http://localhost/ConsoleWars/database/router.php";
+				window.location = "http://consolewars.comlu.com/database/router.php";
 			</script>';			
 		}	else{
 			$query=mysql_query("insert into comment (comment,console,user,date,user_id) values ('$comment','$console','$user','$date','$id')");	
 			echo '<script>
-				window.location = "http://localhost/ConsoleWars/database/router.php";
+				window.location = "http://consolewars.comlu.com/database/router.php";
 			</script>';
 		}
 	}

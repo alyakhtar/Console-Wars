@@ -54,16 +54,16 @@
                 </div>
                 <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
             </form>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.php" target="_blank">Visit Site</a></li>
+            <ul class="nav navbar-nav navbar-right">                
                 <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         Administrator
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li class="dropdown-header">SETTINGS</li>
+                            <li><a href="index.php" target="_blank">Visit Site</a></li>
                             <li class=""><a href="cart.php" target="_ext">Cart</a></li>
-                            <li class="divider"></li>
+                            <!-- <li class="divider"></li> -->
                             <li><a href="database/logout.php?>">Logout</a></li>
                         </ul>
                     </li>
@@ -78,9 +78,10 @@
         <nav class="navbar navbar-default" role="navigation">
             <div class="side-menu-container">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#dashboard" onClick="$('#dashboard').show(); $('#users').hide();$('#comments').hide();$('#carousel').hide();$('#news').hide();$('#gameremove').hide();$('#gameadd').hide();"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-                    <li><a href="#users" onClick="$('#dashboard').hide(); $('#users').show();$('#comments').hide();$('#carousel').hide();$('#news').hide();$('#gameremove').hide();$('#gameadd').hide();"><span class="glyphicon glyphicon-user"></span> Users</a></li>
-                    <li><a href="#" onClick="$('#dashboard').hide(); $('#users').hide();$('#comments').show();$('#carousel').hide();$('#news').hide();$('#gameremove').hide();$('#gameadd').hide();"><span class="glyphicon glyphicon-comment"></span> Comments</a></li>
+                    <li class="active"><a href="#dashboard" onClick="$('#dashboard').show();$('#feedback').hide(); $('#users').hide();$('#comments').hide();$('#carousel').hide();$('#news').hide();$('#gameremove').hide();$('#gameadd').hide();"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+                    <li ><a href="#feedback" onClick="$('#feedback').show(); $('#dashboard').hide();$('#users').hide();$('#comments').hide();$('#carousel').hide();$('#news').hide();$('#gameremove').hide();$('#gameadd').hide();"><span class="glyphicon glyphicon-user"></span> Feedback</a></li>
+                    <li><a href="#users" onClick="$('#dashboard').hide();$('#feedback').hide(); $('#users').show();$('#comments').hide();$('#carousel').hide();$('#news').hide();$('#gameremove').hide();$('#gameadd').hide();"><span class="glyphicon glyphicon-user"></span> Users</a></li>
+                    <li><a href="#" onClick="$('#dashboard').hide();$('#feedback').hide(); $('#users').hide();$('#comments').show();$('#carousel').hide();$('#news').hide();$('#gameremove').hide();$('#gameadd').hide();"><span class="glyphicon glyphicon-comment"></span> Comments</a></li>
                     <li class="panel panel-default" id="dropdown">
                         <a data-toggle="collapse" href="#dropdown-lvl1">
                             <span class="glyphicon glyphicon-list-alt"></span> Web Pages <span class="caret"></span>
@@ -88,16 +89,16 @@
                         <div id="dropdown-lvl1" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="#" onClick="$('#dashboard').hide(); $('#users').hide();$('#comments').hide();$('#carousel').show();$('#news').hide();$('#gameremove').hide();$('#gameadd').hide();">Carousel</a></li>
-                                    <li><a href="#" onClick="$('#dashboard').hide(); $('#users').hide();$('#comments').hide();$('#carousel').hide();$('#news').show();$('#gameremove').hide();$('#gameadd').hide();">News</a></li>
+                                    <li><a href="#" onClick="$('#dashboard').hide(); $('#feedback').hide();$('#users').hide();$('#comments').hide();$('#carousel').show();$('#news').hide();$('#gameremove').hide();$('#gameadd').hide();">Carousel</a></li>
+                                    <li><a href="#" onClick="$('#dashboard').hide(); $('#feedback').hide();$('#users').hide();$('#comments').hide();$('#carousel').hide();$('#news').show();$('#gameremove').hide();$('#gameadd').hide();">News</a></li>
                                     <!-- <li><a href="#">Games</a></li> -->
                                     <li class="panel panel-default" id="dropdown">
                                         <a data-toggle="collapse" href="#dropdown-lvl2"><i class="fa fa-gamepad"></i></span> Games <span class="caret"></span></a>
                                         <div id="dropdown-lvl2" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <ul class="nav navbar-nav">
-                                                    <li><a href="#" onClick="$('#dashboard').hide(); $('#users').hide();$('#comments').hide();$('#carousel').hide();$('#news').hide();$('#gameremove').hide();$('#gameadd').show();">Add</a></li>
-                                                    <li><a href="#" onClick="$('#dashboard').hide(); $('#users').hide();$('#comments').hide();$('#carousel').hide();$('#news').hide();$('#gameremove').show();$('#gameadd').hide();">Remove</a></li>
+                                                    <li><a href="#" onClick="$('#dashboard').hide(); $('#feedback').hide();$('#users').hide();$('#comments').hide();$('#carousel').hide();$('#news').hide();$('#gameremove').hide();$('#gameadd').show();">Add</a></li>
+                                                    <li><a href="#" onClick="$('#dashboard').hide(); $('#feedback').hide();$('#users').hide();$('#comments').hide();$('#carousel').hide();$('#news').hide();$('#gameremove').show();$('#gameadd').hide();">Remove</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -121,6 +122,40 @@
                 This is the Administration Page. All the details and the contents of the website can be managed through this page.<br>
                 Any Notification for other admins should be posted here.
             </div>
+        </div>
+    </div>
+    <div class="col-md-10 content" id="feedback" style="display:none">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Feedback
+            </div>
+            <ul class="list-group">
+                <?php
+                $query=mysql_query('select * from feedback');
+                while($row=mysql_fetch_array($query)){
+                    if ($row[1] != ""){
+                        echo '<li class="list-group-item">
+                            <div class="row">
+                                <div class="col-xs-10 col-md-11">
+                                    <div>
+                                        <p >'.$row[1].'</p>
+                                        <div >
+                                            <p>E-mail: '.$row[2].'</p> 
+                                            <p>Feedback: '.$row[3].'</p>
+                                        </div>
+                                    </div>
+                                    <div class="action">                               
+                                        <a type="button" class="btn btn-danger btn-xs" title="Delete" href="database/admindb.php?feedback_id='.$row[0].'">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>';
+                    }                    
+                }
+                ?>                   
+            </ul>
         </div>
     </div>
     <div class="col-md-10 content" id="users" style="display:none">

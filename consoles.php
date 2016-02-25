@@ -80,9 +80,13 @@ if($login_session == 'guest')
         <li>
             <a href="cart.php" style="font-size:15px;"> 
                 <i class="fa fa-shopping-cart"></i>
-                Cart
+                Cart<div class="numberCircle"><?php
+                                                $query=mysql_query('select count(*) from cart where user_id='.$_SESSION['user_id']);
+                                                $row=mysql_fetch_row($query);
+                                                echo $row[0];
+                                            ?></div>
             </a>                
-        </li>    
+        </li>     
         <li>
             <a href="database/logout.php" style="font-size:15px;"> 
                 <i class="fa fa-sign-out"></i>

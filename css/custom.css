@@ -25,7 +25,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 100;
 }
 
 .carousel {
@@ -52,7 +52,7 @@ body {
 }
 
 .aly{
-	background: url(../img/navbar.jpeg) no-repeat center center fixed;
+	background: url(../img/navbar.jpg) no-repeat center center fixed;
   height:660px;
 	background-size:cover;
 	-webkit-background-size: cover;
@@ -79,6 +79,7 @@ span.highlight2{
     padding:4px 0 0 0;
     margin-top:22px;
     list-style: none;
+    z-index: 50;
 }
 
 .timeline>li:nth-child(even) {
@@ -243,7 +244,7 @@ span.highlight2{
     color: #999;
     font-size: 12px;
 }
-.media .media-object { max-width: 72px; }
+.media .media-object { max-width: 40px; }
 .media-body { position: relative;}
 .media-date { 
     position: absolute; 
@@ -299,6 +300,18 @@ span.highlight2{
     font-weight: bold;
     margin-bottom: -2px;
     font-size: 15px;
+}
+
+.numberCircle {
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    margin-left: 5px;
+    background: lavender;
+    display: inline-block;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center; 
 }
 
 

@@ -40,7 +40,6 @@ function test_input($data)
 }
 
 $sql = "INSERT INTO feedback (name,email,message) VALUES ('$name','$email','$comment')";
-$conn->query($sql);
+mysql_query($sql);
 
-$conn->close();
 ?>

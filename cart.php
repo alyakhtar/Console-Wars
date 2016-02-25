@@ -2,7 +2,10 @@
   include 'database/session.php';
   require_once 'database/dbconnect.php';
   if($login_session == 'guest')
-  header('Location:pleaselogin.php');
+    header('Location:pleaselogin.php');
+  elseif ($login_session == 'admin') {
+    header("Location:index.php");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,9 +88,9 @@
     </div> 
   </div>
 
-  <?php
+   <?php
   $total=0;
-  $query=mysql_query('select * from cart where user_id='.$_SESSION['user_id']);
+  $query=mysql_query('select * from cart where user_id='.$_SESSION['user_id'].' GROUP BY game,console');
   echo '<div class="container" style="padding-top:40px">
     <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">';
@@ -109,29 +112,41 @@
                 </thead>
                 <tbody>';                    
                     while($row=mysql_fetch_array($query)){
-                    $total=$total+$row[2];
-                    echo '<tr>
-                        <td class="col-sm-8 col-md-6">
-                        <div class="media">
-                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="img/news.jpg" style="width: 72px; height: 72px;"> </a>
-                            <div class="media-body">
-                                <h4 class="media-heading" style="padding-left:20px;padding-top:30px">'.$row[1].'</h4>
-                                <h5 class="media-heading" style="padding-left:20px;"> Console : '.$row[4].'</h5>
-                                <!-- <span>Status: </span><span class="text-success"><strong>In Stock</strong></span> -->
-                            </div>
-                        </div></td>
-                        <td>   </td>
-                        <td class="col-sm-1 col-md-1 text-center" style="padding-top:35px"><strong><i class="fa fa-rupee">'.$row[2].'</strong></td>
-                        <td>   </td>
-                        <td class="col-sm-1 col-md-1" style="padding-top:30px" >  
-                          <a class="btn btn-warning" href="database/user_cart.php?game_id='.$row[0].'">Remove</a>                      
-                          <!-- <button type="button" class="btn btn-danger pull-right">
-                              <span class="glyphicon glyphicon-remove"></span> Remove
-                          </button> -->
-                        </td>
-                      </tr>';
+                      $query2= mysql_query('select count(*) from cart where game="'.$row[1].'" and console="'.$row[4].'" and user_id='.$row[3]);
+                      $row2=mysql_fetch_row($query2);
+                      $total=$total+($row2[0]*$row[2]);
+                      echo '<tr>
+                          <td class="col-sm-8 col-md-6">
+                          <div class="media">';
+                            if ($row[4] == 'PLAYSTATION 3'){
+                              echo '<a class="thumbnail pull-left" href="#"> <img class="media-object" src="img/ps3.jpg" style="width: 72px; height: 72px;"> </a>';
+                            } 
+                            else if ($row[4] == 'PLAYSTATION 4'){
+                              echo '<a class="thumbnail pull-left" href="#"> <img class="media-object" src="img/ps4.jpg" style="width: 72px; height: 72px;"> </a>';
+                            }  
+                            else if ($row[4] == 'XBOX 360'){
+                              echo '<a class="thumbnail pull-left" href="#"> <img class="media-object" src="img/xbox360.jpg" style="width: 72px; height: 72px;"> </a>';
+                            } 
+                            else if ($row[4] == 'XBOX ONE'){
+                              echo '<a class="thumbnail pull-left" href="#"> <img class="media-object" src="img/x1.jpg" style="width: 72px; height: 72px;"> </a>';
+                            } 
+                            echo ' <div class="media-body">
+                                  <h4 class="media-heading" style="padding-left:20px;padding-top:30px">'.$row[1].'</h4>
+                                  <h5 class="media-heading" style="padding-left:20px;"> Console : '.$row[4].'</h5>
+                                  <h5 class="media-heading" style="padding-left:20px;"> Quantity : '.$row2[0].'</h5>
+                              </div>
+                          </div></td>
+                          <td>   </td>
+                          <td class="col-sm-1 col-md-1 text-center" style="padding-top:35px"><strong><i class="fa fa-rupee">'.$row[2].'</strong></td>
+                          <td>   </td>
+                          <td class="col-sm-1 col-md-1" style="padding-top:30px" >  
+                            <a class="btn btn-warning" href="database/user_cart.php?game_id='.$row[0].'">Remove</a>                      
+                            <!-- <button type="button" class="btn btn-danger pull-right">
+                                <span class="glyphicon glyphicon-remove"></span> Remove
+                            </button> -->
+                          </td>
+                        </tr>';
                     }
-                    
                     echo '<!-- <tr>
                         <td>   </td>
                         <td>   </td>
@@ -170,7 +185,7 @@
                           </button> -->
                         </td>
                     </tr>';
-                  }
+                }
                 echo '</tbody>
             </table>
         </div>

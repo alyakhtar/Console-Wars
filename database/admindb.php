@@ -1,6 +1,11 @@
 <?php
 	require_once 'dbconnect.php';
 
+  if(isset($_GET['feedback_id'])){
+    $query=mysql_query('delete from feedback where id= '.$_GET['feedback_id']);
+    header("Location:../admin.php");
+  }
+
 	if(isset($_GET['user_id'])){
 		$query=mysql_query('delete from users where id= '.$_GET['user_id']);
 		header("Location:../admin.php");
@@ -92,7 +97,7 @@
         // echo $heading.$subhead.$body.$image_name. $image_size .$image_type. $image_tmp_name;
         if($image_name != ''){
 	        move_uploaded_file($image_tmp_name, "img/news1.jpg");
-	        $query=mysql_query("update news set heading='heading',subtitle='$subhead',text='$body' where id = 1");
+	        $query=mysql_query("update news set heading='$heading',subtitle='$subhead',text='$body' where id = 1");
 	    }
 	}
 	if(isset($_POST['up2'])){
@@ -105,7 +110,7 @@
         $image_tmp_name=$_FILES['image']['tmp_name'];        
         if($image_name != ''){
 	        move_uploaded_file($image_tmp_name, "img/news2.jpg");
-	        $query=mysql_query("update news set heading='heading',subtitle='$subhead',text='$body' where id = 2");
+	        $query=mysql_query("update news set heading='$heading',subtitle='$subhead',text='$body' where id = 2");
 	    }
 	}
 	if(isset($_POST['up3'])){
@@ -118,7 +123,7 @@
         $image_tmp_name=$_FILES['image']['tmp_name'];        
         if($image_name != ''){
 	        move_uploaded_file($image_tmp_name, "img/news3.jpg");
-	        $query=mysql_query("update news set heading='heading',subtitle='$subhead',text='$body' where id = 3");
+	        $query=mysql_query("update news set heading='$heading',subtitle='$subhead',text='$body' where id = 3");
 	    }
 	}
 	if(isset($_POST['up4'])){
@@ -131,7 +136,7 @@
         $image_tmp_name=$_FILES['image']['tmp_name'];        
         if($image_name != ''){
 	        move_uploaded_file($image_tmp_name, "img/news4.jpg");
-	        $query=mysql_query("update news set heading='heading',subtitle='$subhead',text='$body' where id = 4");
+	        $query=mysql_query("update news set heading='$heading',subtitle='$subhead',text='$body' where id = 4");
 	    }
 	}
 	if(isset($_GET['remove1'])){
